@@ -1,0 +1,138 @@
+=== PlayMode verification | 2026-11-24 21:44:40 | phase=1 ===
+PASS  A1  initial gold == 50  | gold=50
+PASS  A1  initial interestThisRound == 5  | interest=5
+PASS  B1  gold=49 EndRound interest == 4  | interest=4
+PASS  B1  gold=49 EndRound gold == 49+5+4  | gold=58
+PASS  B1  gold=50 EndRound interest == 5  | interest=5
+PASS  C1  gold=1 refresh rejected  | ret=False
+PASS  C1  gold=1 no charge  | gold=1
+PASS  C1  insufficient-gold message contains 金币不足  | msg=金币不足：刷新需要 2 金币，当前 1 金币
+PASS  C1  gold=2 refresh succeeds and charges  | gold=0 ret=True
+PASS  C1  shopSlots count == 5 after refresh  | count=5
+PASS  D1  winStreak becomes 1 after first win  | winStreak=1
+PASS  D1  second win EndRound delta == 5 + interest + 1  | delta=11 expected=11 interest=5 winStreak=2
+PASS  E1  5 consecutive EndRounds stay finite and non-negative  | final gold=122 win=1 loss=0
+=== phase1 done | passed=13 failed=0 ===
+=== PlayMode verification | 2026-11-24 21:47:35 ===
+PASS  A1  initial gold == 50  | gold=50
+PASS  A1  initial interestThisRound == 5  | interest=5
+PASS  B1  gold=49 EndRound interest == 4  | interest=4
+PASS  B1  gold=49 EndRound gold == 49+5+4  | gold=58
+PASS  B1  gold=50 EndRound interest == 5  | interest=5
+PASS  C1  gold=1 refresh rejected  | ret=False
+PASS  C1  gold=1 no charge  | gold=1
+PASS  C1  insufficient-gold message contains 金币不足  | msg=金币不足：刷新需要 2 金币，当前 1 金币
+PASS  C1  gold=2 refresh succeeds and charges  | gold=0 ret=True
+PASS  C1  shopSlots count == 5 after refresh  | count=5
+PASS  D1  winStreak becomes 1 after first win  | winStreak=1
+PASS  D1  second win EndRound delta == 5 + interest + 1  | delta=11 expected=11 interest=5 winStreak=2
+PASS  E1  5 consecutive EndRounds stay finite and non-negative  | final gold=122 win=1 loss=0
+=== phase1 done | passed=13 failed=0 ===
+--- phase2 start ---
+PASS  A2  three 1-cost buys succeed  | rets=True,True,True
+PASS  A2  melee 1-star count == 0 after immediate merge  | ones=0
+PASS  A2  melee 2-star count == 1  | twos=1
+PASS  A2  gold == 50 - 3*1 == 47  | gold=47
+PASS  A2  bench count == 1  | bench=1
+PASS  B2  2-star baseHp == floor(101*1.8) == 181  | hp=181
+PASS  B2  2-star baseAtk == floor(11*1.8) == 19  | atk=19
+PASS  C2  after 4th buy melee 1-star == 1  | ones=1
+PASS  C2  melee 2-star stays 1  | twos=1
+PASS  C2  gold == 47 - 1 == 46  | gold=46
+PASS  D2  ranger 2-star == 1  | twos=1
+PASS  D2  melee unchanged (ones=1 twos=1)  | ones=1 twos=1
+PASS  D2  gold == 46 - 3*2 == 40  | gold=40
+PASS  E2  new 2-star uses new config: floor(200*1.8) == 360  | hps=363,360
+PASS  E2  old 2-star keeps floor(202*1.8) == 363  | hps=363,360
+PASS  E2  ranger ones == 0 twos == 2  | ones=0 twos=2
+PASS  E2  gold == 40 - 3*2 == 34  | gold=34
+PASS  F2  buy rejected when gold insufficient  | ret=False
+PASS  F2  bench count unchanged  | before=4 after=4
+PASS  F2  gold unchanged (== 0)  | gold=0
+PASS  F2  insufficient purchase message contains 金币不足  | msg=金币不足：购买 p1_melee 需要 1 金币，当前 0 金币
+--- phase2 done | cumulative passed=34 failed=0 ---
+=== all phases done | passed=34 failed=0 ===
+=== PlayMode verification | 2026-11-24 21:49:52 ===
+--- phase1 start ---
+PASS  A1  initial gold == 50  | gold=50
+PASS  A1  initial interestThisRound == 5  | interest=5
+PASS  B1  gold=49 EndRound interest == 4  | interest=4
+PASS  B1  gold=49 EndRound gold == 49+5+4  | gold=58
+PASS  B1  gold=50 EndRound interest == 5  | interest=5
+PASS  C1  gold=1 refresh rejected  | ret=False
+PASS  C1  gold=1 no charge  | gold=1
+PASS  C1  insufficient-gold message contains 金币不足  | msg=金币不足：刷新需要 2 金币，当前 1 金币
+PASS  C1  gold=2 refresh succeeds and charges  | gold=0 ret=True
+PASS  C1  shopSlots count == 5 after refresh  | count=5
+PASS  D1  winStreak becomes 1 after first win  | winStreak=1
+PASS  D1  second win EndRound delta == 5 + interest + 1  | delta=11 expected=11 interest=5 winStreak=2
+PASS  E1  5 consecutive EndRounds stay finite and non-negative  | final gold=122 win=1 loss=0
+--- phase1 done | cumulative passed=13 failed=0 ---
+--- phase2 start ---
+PASS  A2  three 1-cost buys succeed  | rets=True,True,True
+PASS  A2  melee 1-star count == 0 after immediate merge  | ones=0
+PASS  A2  melee 2-star count == 1  | twos=1
+PASS  A2  gold == 50 - 3*1 == 47  | gold=47
+PASS  A2  bench count == 1  | bench=1
+PASS  B2  2-star baseHp == floor(101*1.8) == 181  | hp=181
+PASS  B2  2-star baseAtk == floor(11*1.8) == 19  | atk=19
+PASS  C2  after 4th buy melee 1-star == 1  | ones=1
+PASS  C2  melee 2-star stays 1  | twos=1
+PASS  C2  gold == 47 - 1 == 46  | gold=46
+PASS  D2  ranger 2-star == 1  | twos=1
+PASS  D2  melee unchanged (ones=1 twos=1)  | ones=1 twos=1
+PASS  D2  gold == 46 - 3*2 == 40  | gold=40
+PASS  E2  new 2-star uses new config: floor(200*1.8) == 360  | hps=363,360
+PASS  E2  old 2-star keeps floor(202*1.8) == 363  | hps=363,360
+PASS  E2  ranger ones == 0 twos == 2  | ones=0 twos=2
+PASS  E2  gold == 40 - 3*2 == 34  | gold=34
+PASS  F2  buy rejected when gold insufficient  | ret=False
+PASS  F2  bench count unchanged  | before=4 after=4
+PASS  F2  gold unchanged (== 0)  | gold=0
+PASS  F2  insufficient purchase message contains 金币不足  | msg=金币不足：购买 p1_melee 需要 1 金币，当前 0 金币
+--- phase2 done | cumulative passed=34 failed=0 ---
+--- A3: re-run phase1 checks (cross regression) ---
+PASS  A1  initial gold == 50  | gold=50
+PASS  A1  initial interestThisRound == 5  | interest=5
+PASS  B1  gold=49 EndRound interest == 4  | interest=4
+PASS  B1  gold=49 EndRound gold == 49+5+4  | gold=58
+PASS  B1  gold=50 EndRound interest == 5  | interest=5
+PASS  C1  gold=1 refresh rejected  | ret=False
+PASS  C1  gold=1 no charge  | gold=1
+PASS  C1  insufficient-gold message contains 金币不足  | msg=金币不足：刷新需要 2 金币，当前 1 金币
+PASS  C1  gold=2 refresh succeeds and charges  | gold=0 ret=True
+PASS  C1  shopSlots count == 5 after refresh  | count=5
+PASS  D1  winStreak becomes 1 after first win  | winStreak=1
+PASS  D1  second win EndRound delta == 5 + interest + 1  | delta=11 expected=11 interest=5 winStreak=2
+PASS  E1  5 consecutive EndRounds stay finite and non-negative  | final gold=122 win=1 loss=0
+PASS  A3  re-run of A1~E1 after merge logic: all still pass  | newFailures=0
+--- B3: multi-round ledger consistency ---
+PASS  B3  ledger after round1 refresh  | gold=48/48 ones=0/0 twos=0/0 bench=0
+PASS  B3  ledger after round1 buy  | gold=47/47 ones=1/1 twos=0/0 bench=1
+PASS  B3  ledger after round2 endround  | gold=56/56 ones=1/1 twos=0/0 bench=1
+PASS  B3  ledger after round2 refresh  | gold=54/54 ones=1/1 twos=0/0 bench=1
+PASS  B3  ledger after round2 buy  | gold=53/53 ones=2/2 twos=0/0 bench=2
+PASS  B3  ledger after round3 refresh  | gold=51/51 ones=2/2 twos=0/0 bench=2
+PASS  B3  merge fired in round3  | merges=1 before=0
+PASS  B3  ledger after round3 buy(merge)  | gold=50/50 ones=0/0 twos=1/1 bench=1
+PASS  B3  ledger after round4 refresh  | gold=48/48 ones=0/0 twos=1/1 bench=1
+PASS  B3  ledger after round4 buy-after-merge  | gold=47/47 ones=1/1 twos=1/1 bench=2
+PASS  B3  ledger after round4 endround  | gold=56/56 ones=1/1 twos=1/1 bench=2
+PASS  B3  final gold equals ledger  | gold=56 expected=56
+PASS  B3  bench within capacity  | bench=2
+--- C3: anti-hardcode parameter linkage ---
+PASS  C3  refreshCost=4: gold 4 refresh succeeds and charges 4  | gold=0 ret=True
+PASS  C3  refreshCost=4: gold 3 refresh rejected  | gold=3 ret=False
+PASS  C3  rejected message contains 金币不足  | msg=金币不足：刷新需要 4 金币，当前 3 金币
+PASS  C3  1-star baseHp=300 -> merged 2-star hp == floor(300*1.8) == 540  | hp=540
+--- D3: UI vs internal state ---
+PASS  D3  UI gold matches internal  | ui=77 internal=77 text=Gold: 77 | Interest: 5 | WinStreak: 3 | LossStreak: 1
+PASS  D3  UI interest matches internal  | ui=5 internal=5
+PASS  D3  UI winStreak matches internal  | ui=3 internal=3
+PASS  D3  UI lossStreak matches internal  | ui=1 internal=1
+PASS  D3  UI bench count matches internal  | ui=1 internal=1
+PASS  D3  UI merges matches internal  | ui=0 internal=0
+PASS  D3  UI message matches internal  | ui=ui-consistency-check internal=ui-consistency-check
+PASS  D3  UI shop slot count == 5  | uiSlots=5
+--- phase3 done | cumulative passed=73 failed=0 ---
+=== all phases done | passed=73 failed=0 ===
